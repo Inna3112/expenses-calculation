@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -14,7 +7,7 @@ import RecentExpenses from './screens/RecentExpences';
 import AllExpenses from './screens/AllExpenses';
 import {GlobalStyles} from './constants/styles';
 import IconButton from './UI/IconButton';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, StatusBar} from 'react-native';
 import ExpensesContextProvider from './store/expenses-context';
 
 const Stack = createNativeStackNavigator();
@@ -74,6 +67,7 @@ function App() {
   return (
     <ExpensesContextProvider>
       <NavigationContainer>
+        <StatusBar barStyle="light-content" backgroundColor="#6a51ae" />
         <Stack.Navigator
           screenOptions={{
             headerStyle: {

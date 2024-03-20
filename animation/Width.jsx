@@ -4,7 +4,6 @@ import {
   View,
   TouchableWithoutFeedback,
   StyleSheet,
-  Text,
 } from 'react-native';
 
 class Scale extends Component {

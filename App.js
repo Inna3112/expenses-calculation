@@ -1,15 +1,8 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import Functions from './animation/Functions';
+import ColorInterpolation from './animation/ColorInterpolation';
 
 function App() {
-  return <Functions />;
+  return <ColorInterpolation />;
 }
 
 export default App;

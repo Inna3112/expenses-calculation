@@ -6,7 +6,6 @@ import {
   StyleSheet,
   Text,
 } from 'react-native';
-import {Animations} from 'react-native-reanimated/lib/typescript/reanimated2/layoutReanimation/web/config';
 
 class Rotation extends Component {
   state = {

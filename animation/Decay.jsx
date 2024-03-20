@@ -2,14 +2,10 @@ import {Component} from 'react';
 import {
   Animated,
   View,
-  TouchableWithoutFeedback,
   StyleSheet,
-  Text,
-  ScrollView,
   AppRegistry,
   PanResponder,
 } from 'react-native';
-import {Animations} from 'react-native-reanimated/lib/typescript/reanimated2/layoutReanimation/web/config';
 
 class Decey extends Component {
   state = {

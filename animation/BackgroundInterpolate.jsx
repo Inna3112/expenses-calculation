@@ -2,13 +2,10 @@ import {Component} from 'react';
 import {
   Animated,
   View,
-  TouchableWithoutFeedback,
   StyleSheet,
-  Text,
   ScrollView,
   AppRegistry,
 } from 'react-native';
-import {Animations} from 'react-native-reanimated/lib/typescript/reanimated2/layoutReanimation/web/config';
 
 class BackgroundInterpolate extends Component {
   state = {

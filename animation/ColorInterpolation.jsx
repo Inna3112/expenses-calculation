@@ -6,52 +6,46 @@ import {
   StyleSheet,
 } from 'react-native';
 
-class Color extends Component {
+class ColorInterpolation extends Component {
   state = {
     animation: new Animated.Value(0),
   };
 
   startAnimation = () => {
     Animated.timing(this.state.animation, {
-      toValue: 1,
+      toValue: 2,
       duration: 1500,
+      useNativeDriver: true,
     }).start(() => {
       Animated.timing(this.state.animation, {
         toValue: 0,
-        duration: 1500,
       }).start();
     });
   };
 
   render() {
-    const boxInterpolation = this.state.animation.interpolate({
-      inputRange: [0, 1],
-      outputRange: ['rgb(255, 99, 71)', 'rgb(99, 71, 255)'],
-    });
-
     const colorInterpolation = this.state.animation.interpolate({
-      inputRange: [0, 1],
-      outputRange: ['rgb(99, 71, 255)', 'rgb(255, 99, 71)'],
+      inputRange: [0, 1, 2],
+      outputRange: ['rgb(71, 255, 99)', 'rgb(255, 99, 71)', 'rgb(99, 71, 255)'],
     });
 
-    const boxAnimatedStyle = {
-      backgroundColor: boxInterpolation,
+    const bgStyle = {
+      backgroundColor: this.state.animation.interpolate({
+        inputRange: [0, 2],
+        outputRange: ['rgb(255, 99, 71, 1)', 'rgb(255, 99, 71, 0)'],
+      }),
     };
 
-    const textAnimatedStyle = {
-      color: colorInterpolation,
+    const animatedStyle = {
+      backgroundColor: colorInterpolation,
     };
 
     return (
-      <View style={styles.container}>
+      <Animated.View style={[styles.container, bgStyle]}>
         <TouchableWithoutFeedback onPress={this.startAnimation}>
-          <Animated.View style={[styles.box, boxAnimatedStyle]}>
-            <Animated.Text style={[textAnimatedStyle]}>
-              Text in box
-            </Animated.Text>
-          </Animated.View>
+          <Animated.View style={[styles.box, animatedStyle]} />
         </TouchableWithoutFeedback>
-      </View>
+      </Animated.View>
     );
   }
 }
@@ -65,8 +59,7 @@ const styles = StyleSheet.create({
   box: {
     width: 150,
     height: 150,
-    // backgroundColor: 'tomato',
   },
 });
 
-export default Color;
+export default ColorInterpolation;
